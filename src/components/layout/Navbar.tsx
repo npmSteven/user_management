@@ -2,15 +2,17 @@ import React from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useSelector } from 'react-redux';
 
+import { Auth } from '../../models/Auth';
+
 function Navbar() {
 
-  const { status } = useSelector((state: any) => state.auth);
+  const auth: Auth = useSelector((state: any) => state.auth);
 
   return (
     <Menu>
       <Menu.Item header>User Management</Menu.Item>
       <Menu.Menu position='right'>
-        {status === 'authorized'
+        {auth.status === 'authorized'
         ? 
           <>
             <Menu.Item
@@ -36,7 +38,8 @@ function Navbar() {
         }
       </Menu.Menu>
     </Menu>
-  )
+  );
+
 }
 
 export default Navbar;

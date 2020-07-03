@@ -1,10 +1,12 @@
+import { Auth } from '../models/Auth';
 import { SET_AUTH, CLEAR_AUTH } from '../actions/types';
+import { AuthAction } from '../models/AuthAction';
 
-const initialState = {
+const initialState: Auth = {
   status: 'unauthorized'
 };
 
-const authReducer = (state = initialState, action: any) => {
+const authReducer = (state: Auth = initialState, action: AuthAction) => {
   switch (action.type) {
     case SET_AUTH:
       return action.auth;

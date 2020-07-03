@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertMUITemplate from "react-alert-template-mui";
 
 import './index.css';
 import App from './App';
@@ -16,7 +18,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AlertProvider template={AlertMUITemplate}>
+      <App />
+    </AlertProvider>
   </Provider>,
   document.getElementById('root')
 );

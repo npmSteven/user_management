@@ -1,23 +1,16 @@
 import React from 'react';
+import { Container } from 'semantic-ui-react';
 
 import Navbar from './components/layout/Navbar';
-import { Button } from 'semantic-ui-react';
-import { useDispatch } from 'react-redux';
-import { SET_AUTH } from './actions/types';
+import { Login } from './components/auth/Login';
 
 function App() {
-  const dispatch = useDispatch();
-
-  // const { status } = useSelector((state: any) => state.auth);
-
-  const handleAuth = () => {
-    dispatch({ type: SET_AUTH, auth: { status: 'authorized' } });
-  }
-
   return (
     <div>
       <Navbar />
-      <Button onClick={handleAuth} content="Login"></Button>
+      <Container>
+        <Login />
+      </Container>
     </div>
   );
 }
