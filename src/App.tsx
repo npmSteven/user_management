@@ -1,14 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Button } from 'semantic-ui-react';
 
-import State from './models/state';
+import { SET_AUTH } from './actions/types';
 
 function App() {
+  const dispatch = useDispatch();
 
-  const auth = useSelector((state: State) => state.auth);
+  const { status } = useSelector((state: any) => state.auth);
+
+  const handleAuth = () => {
+    dispatch({ type: SET_AUTH, auth: { status: 'authed' } });
+  }
+
   return (
     <div className="App">
-      <p>Auth State: { JSON.stringify(auth) }</p>
+      <p>Auth State: { status }</p>
+      <Button onClick={handleAuth} content="Login"></Button>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import 'semantic-ui-less/semantic.less';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
