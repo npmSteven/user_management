@@ -10,7 +10,7 @@ function App() {
   const { status } = useSelector((state: any) => state.auth);
 
   const handleAuth = () => {
-    dispatch({ type: SET_AUTH, auth: { status: 'authed' } });
+    dispatch({ type: SET_AUTH, auth: { status: 'authenticated' } });
   }
 
   return (
