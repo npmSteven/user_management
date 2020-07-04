@@ -25,7 +25,7 @@ export function Login() {
 
     const isLoggedIn = login(username.value, password.value, dispatch);
     if (isLoggedIn) {
-      history.push('/');
+      history.push('/users');
     }
   };
 

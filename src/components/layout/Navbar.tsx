@@ -25,7 +25,7 @@ function Navbar() {
               name='Users'
               icon='users'
               as={Link}
-              to='/'
+              to='/users'
             />
             <Menu.Item
               name='Logout'

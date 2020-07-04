@@ -1,15 +1,19 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, useEffect } from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getUsers } from '../../actions/users.actions';
 import { UsersAction } from '../../models/UsersAction';
 import { User } from '../../models/User';
+import { Link } from 'react-router-dom';
 
 export function Users() {
   const dispatch: Dispatch<UsersAction> = useDispatch();
   const users: Array<User> = useSelector((state: any) => state.users);
 
-  getUsers(dispatch);
+
+  useEffect(() => {
+    getUsers(dispatch);
+  }, []);
 
   return (
     <Card.Group>
@@ -23,13 +27,12 @@ export function Users() {
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>
-            <Button basic>
+            <Button as={Link} to={`/${user.id}/posts`} basic>
               Posts
             </Button>
           </Card.Content>
         </Card>
       )}
-
     </Card.Group>
   );
 }
