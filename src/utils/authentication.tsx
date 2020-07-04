@@ -63,7 +63,9 @@ export const login = (username: string, password: string, dispatch: Dispatch<Aut
     return false;
   }
 
+  // Set the auth status
   dispatch({ type: SET_AUTH, auth: { status: 'authorized' } });
+
   return true;
 };
 

@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Auth } from '../../models/Auth';
 import { logout } from '../../utils/authentication';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -23,6 +24,8 @@ function Navbar() {
             <Menu.Item
               name='Users'
               icon='users'
+              as={Link}
+              to='/'
             />
             <Menu.Item
               name='Logout'
@@ -35,10 +38,14 @@ function Navbar() {
             <Menu.Item
               name='Login'
               icon='sign-in'
+              as={Link}
+              to='/login'
             />
             <Menu.Item
               name='Register'
               icon='signup'
+              as={Link}
+              to='/register'
             />
           </>
         }

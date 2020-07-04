@@ -1,20 +1,17 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
-import { Users } from './components/Users/Users';
+import { Routes } from './components/routing/Routes';
 
 function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <Container>
-        <Users />
-      </Container>
-      <ToastContainer />
-    </div>
+      <Switch>
+        <Route component={Routes} />
+      </Switch>
+    </Router>
   );
 }
 
