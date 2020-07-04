@@ -1,6 +1,5 @@
 import { Dispatch } from 'react';
 import { toast } from 'react-toastify';
-import fs from 'fs';
 
 import authValidation from '../validation/authValidation';
 import users from './users.json';
