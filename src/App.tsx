@@ -1,22 +1,19 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Button } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
-import { SET_AUTH } from './actions/types';
+import Navbar from './components/layout/Navbar';
+import { Register } from './components/auth/Register';
 
 function App() {
-  const dispatch = useDispatch();
-
-  const { status } = useSelector((state: any) => state.auth);
-
-  const handleAuth = () => {
-    dispatch({ type: SET_AUTH, auth: { status: 'authenticated' } });
-  }
-
   return (
-    <div className="App">
-      <p>Auth State: { status }</p>
-      <Button onClick={handleAuth} content="Login"></Button>
+    <div>
+      <Navbar />
+      <Container>
+        <Register />
+      </Container>
+      <ToastContainer />
     </div>
   );
 }
