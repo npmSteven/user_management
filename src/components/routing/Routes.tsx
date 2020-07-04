@@ -8,6 +8,7 @@ import { Register } from '../auth/Register';
 import { Users } from '../users/Users';
 import { AuthenticatedRoute } from './AuthenticatedRoute';
 import { Posts } from '../posts/Posts';
+import { NotFound } from '../layout/NotFound';
 
 export const Routes = () => {
   return (
@@ -16,8 +17,9 @@ export const Routes = () => {
       <Switch>
         <Route exect path='/login' component={Login} />
         <Route exect path='/register' component={Register} />
-        <AuthenticatedRoute exect path='/' component={Users} />
-        <AuthenticatedRoute exect path='/:userId/posts' component={Posts} />
+        <AuthenticatedRoute exect path='/users' component={Users} />
+        <AuthenticatedRoute exect path='/:id/posts' component={Posts} />
+        <Route component={NotFound} />
       </Switch>
     </Container>
   );
