@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../utils/authentication';
@@ -9,7 +9,7 @@ import { SET_AUTH } from '../../actions/types';
 import { useFormInput } from '../hooks/customHooks';
 
 export function Login() {
-  const dispatch = useDispatch();
+  const dispatch: Dispatch<AuthAction> = useDispatch();
   
   const username = useFormInput('');
   const password = useFormInput('');
