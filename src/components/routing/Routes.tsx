@@ -5,8 +5,9 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Login } from '../auth/Login';
 import { Register } from '../auth/Register';
-import { Users } from '../Users/Users';
+import { Users } from '../users/Users';
 import { AuthenticatedRoute } from './AuthenticatedRoute';
+import { Posts } from '../posts/Posts';
 
 export const Routes = () => {
   return (
@@ -16,6 +17,7 @@ export const Routes = () => {
         <Route exect path='/login' component={Login} />
         <Route exect path='/register' component={Register} />
         <AuthenticatedRoute exect path='/' component={Users} />
+        <AuthenticatedRoute exect path='/:userId/posts' component={Posts} />
       </Switch>
     </Container>
   );
