@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { Provider as AlertProvider } from 'react-alert';
-import AlertMUITemplate from "react-alert-template-mui";
+import { Provider as ReduxProvider } from 'react-redux';
 
 import './index.css';
 import App from './App';
@@ -16,12 +14,11 @@ const store = createStore(
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 );
 
+
 ReactDOM.render(
-  <Provider store={store}>
-    <AlertProvider template={AlertMUITemplate}>
+  <ReduxProvider store={store}>
       <App />
-    </AlertProvider>
-  </Provider>,
+  </ReduxProvider>,
   document.getElementById('root')
 );
 

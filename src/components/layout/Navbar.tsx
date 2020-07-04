@@ -1,12 +1,17 @@
 import React from 'react'
 import { Menu } from 'semantic-ui-react'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Auth } from '../../models/Auth';
+import { logout } from '../../utils/authentication';
 
 function Navbar() {
-
+  const dispatch = useDispatch();
   const auth: Auth = useSelector((state: any) => state.auth);
+
+  const handleLogout = () => {
+    logout(dispatch);
+  }
 
   return (
     <Menu>
@@ -22,6 +27,7 @@ function Navbar() {
             <Menu.Item
               name='Logout'
               icon='sign-out'
+              onClick={handleLogout}
             />
           </>
         :
