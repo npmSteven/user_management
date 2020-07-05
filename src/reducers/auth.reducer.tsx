@@ -3,7 +3,7 @@ import { SET_AUTH } from '../actions/types';
 import { AuthAction } from '../models/AuthAction';
 
 const initialState: Auth = {
-  status: 'authorized'
+  status: 'unauthorized'
 };
 
 export const authReducer = (state: Auth = initialState, action: AuthAction) => {
