@@ -66,8 +66,8 @@ export function AddPost(props: Props) {
       title='Add post'
       triggerProps = {{ icon: 'add', content: 'Add post', color: 'green' }}
       inputs = {[
-        { id: 0, title: 'Title', props: title.props },
-        { id: 1, title: 'Body', props: body.props }
+        { id: 0, type: 'field', title: 'Title', props: title.props },
+        { id: 1, type: 'textarea', title: 'Body', props: body.props }
       ]}
       submitProps = {{ icon: 'add', content: 'Add post' }}
       update = { handleAddPost }

@@ -1,4 +1,4 @@
-import React, { Dispatch } from 'react'
+import React from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 

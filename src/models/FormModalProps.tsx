@@ -18,6 +18,7 @@ interface TriggerProps {
 
 interface Input {
   id: number,
+  type: string,
   title: string,
   props: InputProps,
 }

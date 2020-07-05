@@ -62,8 +62,8 @@ export function AddUser() {
       title='Add user'
       triggerProps = {{ icon: 'add user', content: 'Add user', color: 'green' }}
       inputs = {[
-        { id: 0, title: 'Name', props: name.props },
-        { id: 1, title: 'Email', props: email.props }
+        { id: 0, type: 'field', title: 'Name', props: name.props },
+        { id: 1, type: 'field', title: 'Email', props: email.props }
       ]}
       submitProps = {{ icon: 'add user', content: 'Add user' }}
       update = { handleAddUser }
