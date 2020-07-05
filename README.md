@@ -8,7 +8,9 @@ A simple React app that uses JSON for storing authentication and viewing users v
 * Semantic UI
 
 ## Building
-* `yarn build` - Will build the project ready for production
+* `npm i` - install dependencies 
+* `npm build` - Will build the project ready for production
 
 ## Run project for development
-* `yarn start` - Starts live build of React
+* `npm i` - install dependencies 
+* `npm start` - Starts live build of React
