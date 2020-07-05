@@ -1,4 +1,4 @@
-import { SET_USERS } from '../actions/types';
+import { SET_USERS, CLEAR_USERS } from '../actions/types';
 import { User } from '../models/User';
 import { UsersAction } from '../models/UsersAction';
 
@@ -8,6 +8,8 @@ export const usersReducer = (state: Array<User> = initialState, action: UsersAct
   switch (action.type) {
     case SET_USERS:
       return action.users;
+    case CLEAR_USERS:
+      return initialState;
     default:
       return state;
   }
