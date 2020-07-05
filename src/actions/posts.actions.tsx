@@ -9,9 +9,9 @@ export const setPosts = (posts: Array<Post>) => {
   return { type: SET_POSTS, posts };
 }
 
-export const getUserPosts = async (id: number, dispatch: Dispatch<PostsAction>) => {
+export const getPosts = async (dispatch: Dispatch<PostsAction>) => {
   try {
-    const posts: Array<Post> = await get(`/users/${id}/posts`);
+    const posts: Array<Post> = await get(`/posts`);
     dispatch({ type: SET_POSTS, posts });
   } catch (error) {
 

@@ -9,6 +9,7 @@ import { Users } from '../users/Users';
 import { AuthenticatedRoute } from './AuthenticatedRoute';
 import { Posts } from '../posts/Posts';
 import { NotFound } from '../layout/NotFound';
+import { Comments } from '../comments/Comments';
 
 export const Routes = () => {
   return (
@@ -18,7 +19,8 @@ export const Routes = () => {
         <Route exect path='/login' component={Login} />
         <Route exect path='/register' component={Register} />
         <AuthenticatedRoute exect path='/users' component={Users} />
-        <AuthenticatedRoute exect path='/:id/posts' component={Posts} />
+        <AuthenticatedRoute exect path='/posts/:id' component={Posts} />
+        <AuthenticatedRoute exect path='/comments/:id' component={Comments} />
         <Route component={NotFound} />
       </Switch>
     </Container>
