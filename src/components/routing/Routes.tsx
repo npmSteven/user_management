@@ -6,11 +6,11 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import { Login } from '../auth/Login';
 import { Register } from '../auth/Register';
-import { Users } from '../users/Users';
 import { AuthenticatedRoute } from './AuthenticatedRoute';
 import { Posts } from '../posts/Posts';
 import { NotFound } from '../layout/NotFound';
 import { Comments } from '../comments/Comments';
+import { Users } from '../Users/Users';
 
 export const Routes = () => {
   return (
