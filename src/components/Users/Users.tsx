@@ -1,12 +1,14 @@
 import React from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import { useSelector } from 'react-redux';
-
-import { User } from '../../models/User';
 import { Link } from 'react-router-dom';
 
+import { User } from '../../models/User';
+import { State } from '../../models/State';
+
 export function Users() {
-  const users: Array<User> = useSelector((state: any) => state.users);
+  // Get the users from state
+  const users: Array<User> = useSelector((state: State) => state.users);
 
   return (
     <Card.Group>
