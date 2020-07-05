@@ -63,8 +63,8 @@ export function EditPost(props: Props) {
       title='Edit post'
       triggerProps = {{ icon: 'edit', content: 'Edit post', color: 'yellow' }}
       inputs = {[
-        { id: 0, title: 'Title', props: title.props },
-        { id: 1, title: 'Body', props: body.props }
+        { id: 0, type: 'field', title: 'Title', props: title.props },
+        { id: 1, type: 'textarea', title: 'Body', props: body.props }
       ]}
       submitProps = {{ icon: 'edit', content: 'Edit post' }}
       update = { handleEditPost }

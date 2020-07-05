@@ -64,8 +64,8 @@ export function EditUser(props: Props) {
       title='Update user'
       triggerProps = {{ icon: 'edit', content: 'Edit user', color: 'yellow' }}
       inputs = {[
-        { id: 0, title: 'Name', props: name.props },
-        { id: 1, title: 'Email', props: email.props }
+        { id: 0, type: 'field', title: 'Name', props: name.props },
+        { id: 1, type: 'field', title: 'Email', props: email.props }
       ]}
       submitProps = {{ icon: 'add user', content: 'Update user' }}
       update = {handleUpdateUser}

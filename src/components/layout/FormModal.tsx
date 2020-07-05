@@ -25,12 +25,24 @@ export function FormModal(props: FormModalProps) {
       <Modal.Header>{ title }</Modal.Header>
       <Modal.Content>
         <Form>
-          {inputs.map((input: any) =>
-            <Form.Field key={input.id}>
-              <label>{ input.title }</label>
-              <Form.Input { ...input.props } />
-            </Form.Field>
-          )}
+          {inputs.map((input: any) => {
+            if (input.type === 'field') {
+              return (
+                <Form.Field key={input.id}>
+                  <label>{ input.title }</label>
+                  <Form.Input { ...input.props } />
+                </Form.Field>
+              )
+            }
+            if (input.type === 'textarea') {
+              return (
+                <Form.Field key={input.id}>
+                  <label>{ input.title }</label>
+                  <Form.TextArea { ...input.props } />
+                </Form.Field>
+              )
+            }
+          })}
           <Button loading={loadingState.isLoading} onClick={update} {...submitProps} positive />
           <Button disabled={loadingState.isLoading} onClick={handleClose} icon='cancel' content='Cancel' negative />
         </Form>
