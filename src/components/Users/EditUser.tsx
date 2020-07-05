@@ -28,7 +28,7 @@ export function EditUser(props: Props) {
 
 
   const handleUpdateUser = async (): Promise<boolean> => {
-    const userInput: User = { id: user.id, name: name.value, email: email.value };
+    const userInput: User = { id: user.id, name: name.props.value, email: email.props.value };
 
     // Check if the user input is correct
     const { error } = userValidation.validate(userInput);
@@ -48,7 +48,7 @@ export function EditUser(props: Props) {
 
       // Close modal
       setOpenModal(false);
-
+      
       return true;
     } catch (error) {
       // Set the button to stop loading
@@ -64,11 +64,11 @@ export function EditUser(props: Props) {
       title='Update user'
       triggerProps = {{ icon: 'edit', content: 'Edit user', color: 'yellow' }}
       inputs = {[
-        { id: 0, title: 'Name', props: name },
-        { id: 1, title: 'Email', props: email }
+        { id: 0, title: 'Name', props: name.props },
+        { id: 1, title: 'Email', props: email.props }
       ]}
       submitProps = {{ icon: 'add user', content: 'Update user' }}
-      updateUser = {handleUpdateUser}
+      update = {handleUpdateUser}
       loadingState = {{isLoading, setIsLoading}}
       modalState = {{ openModal, setOpenModal }}
     />

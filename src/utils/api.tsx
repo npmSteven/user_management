@@ -22,7 +22,7 @@ export const get = async (path: string) => {
  * @param path endpoint
  * @param payload data we want to add
  */
-export const post = async (path: string, payload: any) => {
+export const postApi = async (path: string, payload: any) => {
   try {
     const response: Response = await fetch(`${domain}${path}`, {
       method: 'POST',

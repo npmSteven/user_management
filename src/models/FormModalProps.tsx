@@ -5,7 +5,7 @@ export interface FormModalProps {
   triggerProps: TriggerProps,
   inputs: Array<Input>,
   submitProps: SubmitProps,
-  updateUser: any,
+  update: any,
   loadingState: any,
   modalState: any,
 }

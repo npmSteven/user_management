@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { User } from '../models/User'
 import { SET_USERS } from './types';
-import { get, deleteApi, post, update } from '../utils/api';
+import { get, deleteApi, update, postApi } from '../utils/api';
 import { UsersAction } from '../models/UsersAction';
 import { getGravatar } from '../utils/lib';
 
@@ -36,7 +36,7 @@ export const deleteUser = async (id: number | undefined, users: Array<User>, dis
 
 export const addUser = async (user: User, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
-    const newUser: User = await post('/users', user);
+    const newUser: User = await postApi('/users', user);
     newUser.avatar = getGravatar(newUser.email);
     users.unshift(newUser);
     const newUsers: Array<User> = users;

@@ -26,7 +26,7 @@ export function Register() {
     dispatch(authAction);
 
     // Pass credentials to register for validation and authing
-    const hasRegistered: boolean = register(username.value, password.value, dispatch);
+    const hasRegistered: boolean = register(username.props.value, password.props.value, dispatch);
     if (hasRegistered) {
       history.push('/users');
     }
@@ -36,11 +36,11 @@ export function Register() {
     <Form>
       <Form.Field>
         <label>Username</label>
-        <Form.Input { ...username } />
+        <Form.Input { ...username.props } />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
-        <Form.Input type='password' { ...password } />
+        <Form.Input type='password' { ...password.props } />
       </Form.Field>
       <Button loading={auth.status === 'loading'} onClick={handleRegister}>Register</Button>
     </Form>

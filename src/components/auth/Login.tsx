@@ -26,7 +26,7 @@ export function Login() {
     dispatch(authAction);
 
     // Pass credentials to login for validation and authing
-    const isLoggedIn: boolean = login(username.value, password.value, dispatch);
+    const isLoggedIn: boolean = login(username.props.value, password.props.value, dispatch);
     if (isLoggedIn) {
       history.push('/users');
     }
@@ -36,11 +36,11 @@ export function Login() {
     <Form>
       <Form.Field>
         <label>Username</label>
-        <Form.Input { ...username } />
+        <Form.Input { ...username.props } />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
-        <Form.Input type='password' { ...password } />
+        <Form.Input type='password' { ...password.props } />
       </Form.Field>
       <Button loading={auth.status === 'loading'} onClick={handleLogin}>Login</Button>
     </Form>

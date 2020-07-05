@@ -20,9 +20,10 @@ export function AddUser() {
 
   const name = useFormInput('');
   const email = useFormInput('');
+  console.log('djakshd');
 
   const handleAddUser = async (): Promise<boolean> => {
-    const userInput: User = { name: name.value, email: email.value };
+    const userInput: User = { name: name.props.value, email: email.props.value };
 
     // Check if the user input is correct
     const { error } = userValidation.validate(userInput);
@@ -42,6 +43,11 @@ export function AddUser() {
   
       // Close the modal
       setOpenModal(false);
+
+      // Reset inputs
+      name.reset();
+      email.reset();
+
       return true;
     } catch (error) {
       // Set the button to stop loading
@@ -57,11 +63,11 @@ export function AddUser() {
       title='Add user'
       triggerProps = {{ icon: 'add user', content: 'Add user', color: 'green' }}
       inputs = {[
-        { id: 0, title: 'Name', props: name },
-        { id: 1, title: 'Email', props: email }
+        { id: 0, title: 'Name', props: name.props },
+        { id: 1, title: 'Email', props: email.props }
       ]}
       submitProps = {{ icon: 'add user', content: 'Add user' }}
-      updateUser = { handleAddUser }
+      update = { handleAddUser }
       loadingState = {{ isLoading, setIsLoading }}
       modalState = {{ openModal, setOpenModal }}
     />
