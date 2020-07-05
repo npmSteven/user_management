@@ -71,6 +71,7 @@ export const addUser = async (user: User, users: Array<User>, dispatch: Dispatch
 export const updateUser = async (user: User, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
     const updatedUser: User = await update(`/users/${user.id}`, user);
+    updatedUser.avatar = getGravatar(updatedUser.email);
     const foundUser = users.find((u: User) => u.id === user.id);
     Object.assign(foundUser, updatedUser);
     dispatch({ type: SET_USERS, users: [...users] });
