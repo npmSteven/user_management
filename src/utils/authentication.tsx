@@ -38,6 +38,7 @@ export const register = (username: string, password: string, dispatch: Dispatch<
   }
 
   // create user and auth them
+
   dispatch({ type: SET_AUTH, auth: { status: 'authorized' } });
   return true;
 };
