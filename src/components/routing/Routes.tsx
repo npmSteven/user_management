@@ -10,7 +10,7 @@ import { AuthenticatedRoute } from './AuthenticatedRoute';
 import { Posts } from '../posts/Posts';
 import { NotFound } from '../layout/NotFound';
 import { Comments } from '../comments/Comments';
-import { Users } from '../Users/Users';
+import { Users } from '../users/Users';
 
 export const Routes = () => {
   return (
