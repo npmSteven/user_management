@@ -11,6 +11,10 @@ export const setUsers = (users: Array<User>) => {
   return { type: SET_USERS, users };
 };
 
+/**
+ * Get users
+ * @param dispatch Set users to state
+ */
 export const getUsers = async (dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
     const users: Array<User> = await get('/users');
@@ -24,6 +28,12 @@ export const getUsers = async (dispatch: Dispatch<UsersAction>): Promise<void> =
   }
 };
 
+/**
+ * Delete a user
+ * @param id id of user
+ * @param users Users from state
+ * @param dispatch Set new state without user
+ */
 export const deleteUser = async (id: number | undefined, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
     await deleteApi(id, 'users');
@@ -34,6 +44,12 @@ export const deleteUser = async (id: number | undefined, users: Array<User>, dis
   }
 };
 
+/**
+ * Add a new user
+ * @param user New user
+ * @param users Users from state
+ * @param dispatch Set new user to state
+ */
 export const addUser = async (user: User, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
     const newUser: User = await postApi('/users', user);
@@ -46,6 +62,12 @@ export const addUser = async (user: User, users: Array<User>, dispatch: Dispatch
   }
 };
 
+/**
+ * Update user
+ * @param user Updated user
+ * @param users Users from state
+ * @param dispatch Update state with new user
+ */
 export const updateUser = async (user: User, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
   try {
     const updatedUser: User = await update(`/users/${user.id}`, user);

@@ -11,8 +11,6 @@ import { PostsAction } from '../../models/PostsAction';
 import { CommentsAction } from '../../models/CommentsAction';
 import { State } from '../../models/State';
 
-// TODO: Change AuthenticatedRoute params to a better type
-
 // Check if the user is logged in
 export function AuthenticatedRoute({ component: Component, ...rest }: any) {
   const userDispatch: Dispatch<UsersAction> = useDispatch();
