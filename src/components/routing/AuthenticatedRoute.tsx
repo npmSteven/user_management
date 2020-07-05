@@ -27,7 +27,7 @@ export function AuthenticatedRoute({ component: Component, ...rest }: any) {
     getUsers(userDispatch);
     getPosts(postsDispatch);
     getComments(commentsDispatch);
-  }, []);
+  }, [userDispatch, postsDispatch, commentsDispatch]);
 
   return (
     <Route
