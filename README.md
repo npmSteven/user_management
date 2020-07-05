@@ -19,7 +19,7 @@ I wanted to code this as if I was coding for a real backend, doing it this way p
 
 ## Building
 * `npm i` - install dependencies 
-* `npm build` - Will build the project ready for production
+* `npm run build` - Will build the project ready for production
 
 ## Run project for development
 * `npm i` - install dependencies 
