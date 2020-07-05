@@ -20,7 +20,6 @@ export function AddUser() {
 
   const name = useFormInput('');
   const email = useFormInput('');
-  console.log('djakshd');
 
   const handleAddUser = async (): Promise<boolean> => {
     const userInput: User = { name: name.props.value, email: email.props.value };
