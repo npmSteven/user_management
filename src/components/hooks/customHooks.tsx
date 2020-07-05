@@ -7,8 +7,15 @@ export const useFormInput = (initialValue: string) => {
     setValue(event.target.value);
   };
 
+  const reset = () => {
+    setValue('');
+  }
+
   return {
-    value,
-    onChange: handleChange
+    props: {
+      value,
+      onChange: handleChange,
+    },
+    reset,
   }
 }

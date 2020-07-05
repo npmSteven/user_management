@@ -44,13 +44,9 @@ export function Users() {
               </Card.Meta>
             </Card.Content>
             <Card.Content extra>
-              <Button as={Link} to={`/posts/${user.id}`} basic>
-                View posts
-              </Button>
+              <Button as={Link} to={`/posts/${user.id}`} content='View posts' icon='list' />
               <EditUser user={user} />
-              <Button style={{ marginTop: 5 }} color='red' onClick={() => handleUserDelete(user.id)} basic>
-                Delete
-              </Button>
+              <Button style={{ marginTop: 5 }} color='red' onClick={() => handleUserDelete(user.id)} icon='remove' content='Delete' />
             </Card.Content>
           </Card>
         )}
