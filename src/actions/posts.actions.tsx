@@ -10,6 +10,10 @@ export const setPosts = (posts: Array<Post>) => {
   return { type: SET_POSTS, posts };
 }
 
+/**
+ * Get posts from endpoint
+ * @param dispatch Set the posts to state
+ */
 export const getPosts = async (dispatch: Dispatch<PostsAction>): Promise<void> => {
   try {
     const posts: Array<Post> = await get(`/posts`);
@@ -19,6 +23,12 @@ export const getPosts = async (dispatch: Dispatch<PostsAction>): Promise<void> =
   }
 }
 
+/**
+ * Delete a post
+ * @param id the id of the post
+ * @param posts all of the posts from state
+ * @param dispatch set new state with new posts
+ */
 export const deletePost = async (id: number | undefined, posts: Array<Post>, dispatch: Dispatch<PostsAction>): Promise<void> => {
   try {
     await deleteApi(id, 'posts');
@@ -29,6 +39,12 @@ export const deletePost = async (id: number | undefined, posts: Array<Post>, dis
   }
 };
 
+/**
+ * Add a new post
+ * @param post The post we want to add to the DB and state
+ * @param posts Posts from state
+ * @param dispatch Set new post to state
+ */
 export const addPost = async (post: Post, posts: Array<Post>, dispatch: Dispatch<PostsAction>): Promise<void> => {
   try {
     const newPost: Post = await postApi('/posts', post);
@@ -40,6 +56,12 @@ export const addPost = async (post: Post, posts: Array<Post>, dispatch: Dispatch
   }
 };
 
+/**
+ * Update post
+ * @param post Updated post
+ * @param posts Posts from state
+ * @param dispatch Update post in state
+ */
 export const updatePost = async (post: Post, posts: Array<Post>, dispatch: Dispatch<PostsAction>): Promise<void> => {
   try {
     const updatedPost: Post = await update(`/posts/${post.id}`, post);

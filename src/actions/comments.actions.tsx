@@ -10,6 +10,10 @@ export const setComments = (comments: Array<Comment>) => {
   return { type: SET_COMMENTS, comments };
 }
 
+/**
+ * Get comments from endpoint
+ * @param dispatch set the comments to state
+ */
 export const getComments = async (dispatch: Dispatch<CommentsAction>): Promise<void> => {
   try {
     const comments: Array<Comment> = await get(`/comments`);
