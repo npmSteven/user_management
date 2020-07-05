@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import { User } from '../models/User'
 import { SET_USERS } from './types';
-import { get } from '../utils/api';
+import { get, deleteApi } from '../utils/api';
 import { UsersAction } from '../models/UsersAction';
 import { getGravatar } from '../utils/lib';
 
@@ -21,6 +21,16 @@ export const getUsers = async (dispatch: Dispatch<UsersAction>): Promise<void> =
     dispatch({ type: SET_USERS, users });
   } catch (error) {
     toast.error('Something went wrong when trying to get users');
+  }
+}
+
+export const deleteUser = async (id: number, users: Array<User>, dispatch: Dispatch<UsersAction>): Promise<void> => {
+  try {
+    await deleteApi(id, 'users');
+    const newUsers: Array<User> = users.filter((user: User) => user.id !== id);
+    dispatch({ type: SET_USERS, users: newUsers });
+  } catch (error) {
+    toast.error('Something went wrong when trying to delete the user');
   }
 }
 
