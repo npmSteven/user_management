@@ -5,11 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Auth } from '../../models/Auth';
 import { logout } from '../../utils/authentication';
 import { Link } from 'react-router-dom';
-import { AuthAction } from '../../models/AuthAction';
 import { State } from '../../models/State';
 
 function Navbar() {
-  const dispatch: Dispatch<AuthAction> = useDispatch();
+  const dispatch = useDispatch();
 
   const auth: Auth = useSelector((state: State) => state.auth);
 

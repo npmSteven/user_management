@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 import authValidation from '../validation/authValidation';
 import users from './users.json';
-import { SET_AUTH } from '../actions/types';
+import { SET_AUTH, CLEAR_USERS, CLEAR_POSTS, CLEAR_COMMENTS } from '../actions/types';
 import { AuthAction } from '../models/AuthAction';
 
 
@@ -71,8 +71,11 @@ export const login = (username: string, password: string, dispatch: Dispatch<Aut
   return true;
 };
 
-export const logout = (dispatch: Dispatch<AuthAction>): boolean => {
+export const logout = (dispatch: Dispatch<any>): boolean => {
   dispatch({ type: SET_AUTH, auth: { status: 'unauthorized' } });
+  dispatch({ type: CLEAR_USERS });
+  dispatch({ type: CLEAR_POSTS });
+  dispatch({ type: CLEAR_COMMENTS });
   return true;
 };
 
