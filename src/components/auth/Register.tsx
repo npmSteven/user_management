@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../../utils/authentication';
+import { useHistory } from 'react-router-dom';
 
+import { register } from '../../utils/authentication';
 import { Auth } from '../../models/Auth';
 import { AuthAction } from '../../models/AuthAction';
 import { SET_AUTH } from '../../actions/types';
+import { State } from '../../models/State';
+import { useFormInput } from '../hooks/customHooks';
 
 export function Register() {
   const dispatch = useDispatch();
@@ -13,13 +16,20 @@ export function Register() {
   const username = useFormInput('');
   const password = useFormInput('');
 
-  const auth: Auth = useSelector((state: any) => state.auth);
+  const history = useHistory();
+
+  const auth: Auth = useSelector((state: State) => state.auth);
   
   const handleRegister = () => {
+    // Set auth status to loading
     const authAction: AuthAction = { type: SET_AUTH, auth: { status: 'loading' } };
     dispatch(authAction);
 
-    register(username.value, password.value, dispatch);
+    // Pass credentials to register for validation and authing
+    const hasRegistered: boolean = register(username.value, password.value, dispatch);
+    if (hasRegistered) {
+      history.push('/users');
+    }
   };
 
   return (
@@ -35,17 +45,4 @@ export function Register() {
       <Button loading={auth.status === 'loading'} onClick={handleRegister}>Register</Button>
     </Form>
   );
-}
-
-const useFormInput = (initialValue: string) => {
-  const [value, setValue] = useState(initialValue);
-
-  const handleChange = (event: any) => {
-    setValue(event.target.value);
-  };
-
-  return {
-    value,
-    onChange: handleChange
-  }
 }

@@ -13,8 +13,8 @@ interface usersModal {
 
 const usersDb: usersModal = users;
 
-const validateInput = (username: string, password: string, dispatch: Dispatch<AuthAction>) => {
-  // Validate auth details with schema
+// Validate auth details with schema
+const validateInput = (username: string, password: string, dispatch: Dispatch<AuthAction>): boolean => {
   const { error } = authValidation.validate({ username, password });
   if (error) {
     dispatch({ type: SET_AUTH, auth: { status: 'unauthorized' } });
@@ -30,6 +30,7 @@ export const register = (username: string, password: string, dispatch: Dispatch<
     return false;
   }
 
+  // Check if user already exists
   if (usersDb[username]) {
     toast.error('User already exists');
     dispatch({ type: SET_AUTH, auth: { status: 'unauthorized' } });
@@ -37,7 +38,7 @@ export const register = (username: string, password: string, dispatch: Dispatch<
   }
 
   // create user and auth them
-
+  dispatch({ type: SET_AUTH, auth: { status: 'authorized' } });
   return true;
 };
 

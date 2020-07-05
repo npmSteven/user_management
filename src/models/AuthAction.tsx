@@ -1,4 +1,4 @@
-import { Auth } from "./Auth";
+import { Auth } from './Auth';
 
 export interface AuthAction {
   type: string,

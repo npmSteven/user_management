@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { Menu } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Auth } from '../../models/Auth';
 import { logout } from '../../utils/authentication';
 import { Link } from 'react-router-dom';
+import { AuthAction } from '../../models/AuthAction';
+import { State } from '../../models/State';
 
 function Navbar() {
-  const dispatch = useDispatch();
-  const auth: Auth = useSelector((state: any) => state.auth);
+  const dispatch: Dispatch<AuthAction> = useDispatch();
 
-  const handleLogout = () => {
+  const auth: Auth = useSelector((state: State) => state.auth);
+
+  const handleLogout = (): void => {
     logout(dispatch);
   }
 
