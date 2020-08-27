@@ -16,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
   <ReduxProvider store={store}>
-      <App />
+    <App />
   </ReduxProvider>,
   document.getElementById('root')
 );

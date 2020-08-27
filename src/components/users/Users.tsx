@@ -1,4 +1,4 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch, useEffect } from 'react'
 import { Card, Image, Button, Header } from 'semantic-ui-react'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,16 +6,32 @@ import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
 import { State } from '../../models/State';
-import { deleteUser } from '../../actions/users.actions';
+import { deleteUser, getUsers } from '../../actions/users.actions';
 import { UsersAction } from '../../models/UsersAction';
 import { AddUser } from './AddUser';
 import { EditUser } from './EditUser';
+import { Auth } from '../../models/Auth';
+import { getPosts } from '../../actions/posts.actions';
+import { getComments } from '../../actions/comments.actions';
+import { PostsAction } from '../../models/PostsAction';
+import { CommentsAction } from '../../models/CommentsAction';
 
 export function Users() {
   const userDispatch: Dispatch<UsersAction> = useDispatch();
+  const postsDispatch: Dispatch<PostsAction> = useDispatch();
+  const commentsDispatch: Dispatch<CommentsAction> = useDispatch();
 
   // Get the users from state
   const users: Array<User> = useSelector((state: State) => state.users);
+
+  // Get all of the users, posts and comments and set to state
+  useEffect(() => {
+    (async function anyNameFunction() {
+      await getUsers(userDispatch);
+      await getPosts(postsDispatch);
+      await getComments(commentsDispatch);
+    })();
+  }, [userDispatch, postsDispatch, commentsDispatch]);
 
   const handleUserDelete = async (id: number | undefined): Promise<void> => {
     try {

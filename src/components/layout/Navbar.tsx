@@ -21,7 +21,7 @@ function Navbar() {
       <Menu.Item header>User Management</Menu.Item>
       <Menu.Menu position='right'>
         {auth.status === 'authorized'
-        ? 
+        ?
           <>
             <Menu.Item
               name='Users'
