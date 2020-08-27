@@ -35,11 +35,11 @@ export function Login() {
   return (
     <Form>
       <Form.Field>
-        <label>Username</label>
+        <label>Username: </label>
         <Form.Input { ...username.props } />
       </Form.Field>
       <Form.Field>
-        <label>Password</label>
+        <label>Password: </label>
         <Form.Input type='password' { ...password.props } />
       </Form.Field>
       <Button loading={auth.status === 'loading'} onClick={handleLogin}>Login</Button>
