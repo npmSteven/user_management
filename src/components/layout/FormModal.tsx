@@ -4,7 +4,7 @@ import { Button, Modal, Form } from 'semantic-ui-react';
 import { FormModalProps } from '../../models/FormModalProps';
 
 export function FormModal(props: FormModalProps) {
-  const { triggerProps, inputs, submitProps, update, modalState, loadingState, title } = props;
+  const { triggerProps, inputs, submitProps, update, modalState, loadingState, title }: any = props;
 
   const handleOpen = () => {
     modalState.setOpenModal(true);
@@ -42,6 +42,7 @@ export function FormModal(props: FormModalProps) {
                 </Form.Field>
               )
             }
+            return null;
           })}
           <Button loading={loadingState.isLoading} onClick={update} {...submitProps} positive />
           <Button disabled={loadingState.isLoading} onClick={handleClose} icon='cancel' content='Cancel' negative />

@@ -10,7 +10,6 @@ import { deleteUser, getUsers } from '../../actions/users.actions';
 import { UsersAction } from '../../models/UsersAction';
 import { AddUser } from './AddUser';
 import { EditUser } from './EditUser';
-import { Auth } from '../../models/Auth';
 import { getPosts } from '../../actions/posts.actions';
 import { getComments } from '../../actions/comments.actions';
 import { PostsAction } from '../../models/PostsAction';
