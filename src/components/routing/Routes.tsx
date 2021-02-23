@@ -17,11 +17,11 @@ export const Routes = () => {
     <Container>
       <ToastContainer />
       <Switch>
-        <Route exect path='/login' component={Login} />
-        <Route exect path='/register' component={Register} />
-        <AuthenticatedRoute exect path='/users' component={Users} />
-        <AuthenticatedRoute exect path='/posts/:id' component={Posts} />
-        <AuthenticatedRoute exect path='/comments/:id' component={Comments} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Register} />
+        <AuthenticatedRoute exact path='/users' component={Users} />
+        <AuthenticatedRoute exact path='/posts/:id' component={Posts} />
+        <AuthenticatedRoute exact path='/comments/:id' component={Comments} />
         <AuthenticatedRoute path='/' to='/users' />
         <Route component={NotFound} />
       </Switch>
